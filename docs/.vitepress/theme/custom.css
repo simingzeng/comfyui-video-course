@@ -1,0 +1,45 @@
+:root {
+  --vp-c-brand-1: #6366f1;
+  --vp-c-brand-2: #818cf8;
+  --vp-c-brand-3: #4f46e5;
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #a855f7 0%, #6366f1 50%, #06b6d4 100%);
+}
+
+/* Hero 图片样式美化与悬浮微动画 */
+.VPHero .image-container img {
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 35px rgba(99, 102, 241, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.VPHero .image-container:hover img {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 60px -12px rgba(129, 140, 248, 0.45), 0 0 45px rgba(168, 85, 247, 0.45);
+}
+
+/* Feature 卡片拟态增强 */
+.VPFeature {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease !important;
+}
+
+.VPFeature:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+}
+
+/* Mermaid 容器样式 */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}

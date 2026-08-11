@@ -5,6 +5,9 @@ hero:
   name: "ComfyUI AI 视频极客教程"
   text: "从 zero 到影视级 AI 视频生成"
   tagline: "做图 ➔ 3D运镜 ➔ 视频生成 ➔ 5080+4070 双机协同挂机"
+  image:
+    src: /hero-cover.png
+    alt: ComfyUI AI Video Engine
   actions:
     - theme: brand
       text: 开始学习第一课
