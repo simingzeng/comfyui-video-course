@@ -2,6 +2,8 @@
 
 > **Build in Public**：记录从零手把手掌握 ComfyUI，到实现 AI 影视级视频生成与双机挂机自动化的全过程。
 
+🌐 **在线阅读网站**：[https://simingzeng.github.io/comfyui-video-course/](https://simingzeng.github.io/comfyui-video-course/)
+
 ---
 
 ## 📌 教程目录规划
