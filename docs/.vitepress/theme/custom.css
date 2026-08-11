@@ -6,6 +6,28 @@
   --vp-home-hero-name-background: linear-gradient(120deg, #a855f7 0%, #6366f1 50%, #06b6d4 100%);
 }
 
+/* 💻 专为 16:9 与 21:9 宽屏/带鱼屏优化的沉浸式宽度扩展 */
+.VPContent .container,
+.VPDoc .container {
+  max-width: 1400px !important;
+}
+
+.VPDoc .content-container {
+  max-width: 1100px !important;
+}
+
+/* 21:9 带鱼屏/超宽屏极限优化 */
+@media (min-width: 1600px) {
+  .VPContent .container,
+  .VPDoc .container {
+    max-width: 1680px !important;
+  }
+  
+  .VPDoc .content-container {
+    max-width: 1350px !important;
+  }
+}
+
 /* Hero 图片样式美化与悬浮微动画 */
 .VPHero .image-container img {
   border-radius: 16px;
@@ -49,7 +71,7 @@
   display: block;
   margin: 28px auto;
   width: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   border-radius: 14px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(99, 102, 241, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -59,4 +81,3 @@
 .vp-doc img:hover {
   transform: scale(1.01);
 }
-
