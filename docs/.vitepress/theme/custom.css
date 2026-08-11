@@ -43,3 +43,20 @@
   border-radius: 12px;
   border: 1px solid rgba(99, 102, 241, 0.2);
 }
+
+/* 文章内部大图响应居中与超清展示 */
+.vp-doc img {
+  display: block;
+  margin: 28px auto;
+  width: 100%;
+  max-width: 960px;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(99, 102, 241, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.vp-doc img:hover {
+  transform: scale(1.01);
+}
+
