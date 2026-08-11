@@ -9,7 +9,8 @@
 ## 📌 教程目录规划
 
 ### 阶段 0：静态关键帧与做图基础
-- [x] [01. ComfyUI 5大核心节点与底层数据流解析](docs/01-basics/01-core-nodes.md)
+- [x] [00. ComfyUI Desktop 手把手新手安装与软件界面入门](docs/01-basics/00-desktop-quickstart.md)
+- [x] [01. ComfyUI 5大核心节点白话大拆解](docs/01-basics/01-core-nodes.md)
 - [ ] 02. 高精画质：FLUX.1 原生大模型与提示词工程
 
 ### 阶段 1：3D 空间与相机运镜控制
