@@ -49,7 +49,23 @@
 | **16G/24G 显存** (RTX 5080 / 4090) | **FLUX.1-dev (原生 FP16)** / **Wan 2.1 视频** | 原生高精度渲染、图生视频关键帧与高清导出 |
 | **多卡/48G+ 显存** (RTX 6000 / A100 多卡) | 原生 4K FLUX / 多卡 **Wan 2.1** 长视频 | ComfyUI-Distributed 多卡并行与 TensorRT 加速 |
 
-* **模型放置路径**：将下载好的 `.safetensors` 或 `.gguf` 结尾的模型文件，直接复制粘贴进 **`models/checkpoints/`**（或对应 UNet）目录下即可。
+#### 3. 实战案例：以 FLUX.1-dev 为例，如何安装到 ComfyUI？
+
+安装大模型有 **2 种最主流的方法**（优先推荐方法一）：
+
+##### 🌟 方法一：在 ComfyUI 软件内【一键自动安装】（最方便！）
+1. **打开界面**：在 ComfyUI 画布界面右上角，点击 **`管理扩展功能`** 按钮。
+2. **进入模型库**：在弹出的管理器窗口中，点击 **`模型安装` (Install Models)**。
+3. **搜索下载**：在搜索框输入 `FLUX.1-dev`，找到模型后直接点击右侧的 **`Install` (安装)**。
+4. **自动放置**：ComfyUI 会自动在后台将模型下载并保存到正确的 `models/` 目录中，下载完成后刷新即可在节点中选择！
+
+##### 📦 方法二：手动下载后复制到文件夹（适合大文件/网络不稳定）
+FLUX.1-dev 涵盖以下关键文件，手动下载后请按以下目录存放：
+* **UNet 模型文件**（`flux1-dev.safetensors`）➔ 放入 **`models/unet/`** 或 `models/checkpoints/`
+* **CLIP 文本编码器**（`t5xxl_fp16.safetensors` 与 `clip_l.safetensors`）➔ 放入 **`models/clip/`**
+* **VAE 解码器**（`ae.safetensors`）➔ 放入 **`models/vae/`**
+
+放好后，在 ComfyUI 节点菜单中点击 **刷新 (Refresh)** 即可直接调用。
 
 #### 3. 挂载本地已有模型（如果你硬盘里已有模型）
 如果你的 5080/4070 电脑其他盘里已经有 SDWebUI 或 ComfyUI 模型，可以直接在 ComfyUI 根目录的 `extra_model_paths.yaml` 中配置旧模型路径，无需重复下载！
