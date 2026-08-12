@@ -13,15 +13,21 @@ export default withMermaid(
       logo: '/hero-cover.png',
       nav: [
         { text: '首页', link: '/' },
-        { text: '00课：新手软件入门', link: '/01-basics/00-desktop-quickstart' },
-        { text: '01课：5大基础节点', link: '/01-basics/01-core-nodes' }
+        { text: '00课：软件启动大厅', link: '/01-basics/00-desktop-quickstart' },
+        { text: '01课：5大核心节点', link: '/01-basics/01-core-nodes' }
       ],
       sidebar: [
         {
-          text: '阶段 0：做图基础与新手入门',
+          text: '阶段 0：软件安装与界面基础',
           items: [
-            { text: '00. 软件界面与新手手把手入门', link: '/01-basics/00-desktop-quickstart' },
-            { text: '01. 5大核心节点白话大拆解', link: '/01-basics/01-core-nodes' }
+            { text: '00. 软件启动与大厅指引', link: '/01-basics/00-desktop-quickstart' },
+            { text: '01. 5大核心节点白话拆解', link: '/01-basics/01-core-nodes' }
+          ]
+        },
+        {
+          text: '阶段 1：静态做图与关键帧控制',
+          items: [
+            { text: '02. FLUX.1 原生大模型与提示词工程', link: '#' }
           ]
         }
       ],
