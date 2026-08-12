@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 开始学习第一课
-      link: /01-basics/01-core-nodes
+      link: /01-basics/00-desktop-quickstart
     - theme: alt
       text: GitHub 仓库
       link: https://github.com/simingzeng/comfyui-video-course
