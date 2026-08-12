@@ -88,27 +88,34 @@
 ## 📂 六、 权威解密：模型真实保存路径与文件夹 3 大金字塔
 
 ### 1️⃣ 下载的模型到底存放在哪里？
-* **官方共享模型绝对路径**（界面下载模型的真正存放地）：
-  👉 **`D:\ComfyUI-Shared\models\`**（或 `C:\Users\用户名\AppData\Local\Comfy-Desktop\ComfyUI-Shared\models\`）
-* **实例私有模型路径**（供你自己手动放入私有模型）：
+
+如果你按照【三、全局共享模型设置】将共享路径设置为了 D 盘，那么你在界面一键下载的所有大模型，都会**100% 真实存放在你的 D 盘共享仓中**：
+
+* **官方共享模型绝对路径**（界面下载模型的真正的落地存放地）：
+  👉 **`D:\ComfyUI-Shared\models\`**
+* **实例私有模型路径**（你自己手动拖入的私有测试模型）：
   👉 **`D:\ComfyUI-Installs\MainEnv\ComfyUI\models\`**
 
 ---
 
-### 2️⃣ 3 大核心目录金字塔规律（日常使用只需记这 3 个）：
-虽然 ComfyUI 根目录下有许多代码文件夹，但作为使用者，你**完全不需要管系统代码文件夹**，只需要记住这 3 个最核心的目录：
+### 2️⃣ 3 大核心目录金字塔结构（日常使用只需记住这 3 个）：
+
+作为使用者，你完全不需要理会繁杂的系统代码文件夹，只需要记住以下 3 个核心位置的分工：
 
 ```text
-MainEnv/ComfyUI (内核根目录)
-├── models/              <-- 1. 模型大本营（所有几GB~几十GB的模型全存这里）
-│   ├── text_encoders/   <-- 语言/文本编码器 (如 qwen_3_4b)
-│   ├── diffusion_models/<-- 生成主模型 (如 z_image_turbo / flux-2-klein)
-│   ├── vae/             <-- 图像解码器 (如 ae.safetensors)
-│   ├── checkpoints/     <-- 传统整合大模型 (如 SDXL 1.0)
-│   ├── loras/           <-- 风格/角色微调模型 (LoRA)
-│   └── controlnet/      <-- 姿态控制模型 (ControlNet)
-├── custom_nodes/        <-- 2. 插件安装区（你安装的所有第三方节点代码全在这里）
-└── output/              <-- 3. 成果产出区（你每次点击“运行”生成的图片，全部自动存在这里！）
+D:\ (你的 D 盘大分区)
+├── ComfyUI-Shared/              <-- 1. 共享模型大本营（最核心！界面下载的所有大模型全在这里）
+│   └── models/
+│       ├── text_encoders/       <-- 存放语言/文本编码器 (如 qwen_3_4b)
+│       ├── diffusion_models/    <-- 存放生成主模型 (如 z_image_turbo / flux-2-klein)
+│       ├── vae/                 <-- 存放图像解码器 (如 ae.safetensors)
+│       ├── checkpoints/         <-- 存放传统整合大模型 (如 SDXL 1.0)
+│       ├── loras/               <-- 存放风格/角色微调模型 (LoRA)
+│       └── controlnet/          <-- 存放姿态控制模型 (ControlNet)
+│
+└── ComfyUI-Installs/MainEnv/ComfyUI/   <-- 2 & 3. 你的 MainEnv 实例根目录
+    ├── custom_nodes/            <-- 2. 插件安装区（你安装的所有第三方节点扩展代码都在这里）
+    └── output/                  <-- 3. 成果产出区（你每次点击“运行”生成的图片，自动在这里存好！）
 ```
 
 ---
