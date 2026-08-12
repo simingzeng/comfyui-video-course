@@ -40,37 +40,40 @@
 在 ComfyUI 中，所有负责文生图的大模型都统一存放在：
 👉 **`ComfyUI 安装目录/models/checkpoints/`** 文件夹中！
 
-#### 2. 根据你的显卡配置选择适配模型与优化参数
+#### 3. 🎯 5080 16GB 显存专属：新一代顶级模型学习路线与文件目录表
 
-| 显卡/硬件配置 | 推荐主攻模型 | 部署/优化建议 |
-| :--- | :--- | :--- |
-| **8G 显存** (GTX 1660 / RTX 2060) | SD 1.5 / LCM 轻量模型 | 启动必加 `--lowvram` |
-| **12G/16G 显存** (RTX 4070 / 4060Ti) | **SDXL 1.0** / **FLUX.1-schnell (GGUF)** | 配置 `--lowvram`，适合挂机批处理与 4K 超分 |
-| **16G/24G 显存** (RTX 5080 / 4090) | **FLUX.1-dev (原生 FP16)** / **Wan 2.1 视频** | 原生高精度渲染、图生视频关键帧与高清导出 |
-| **多卡/48G+ 显存** (RTX 6000 / A100 多卡) | 原生 4K FLUX / 多卡 **Wan 2.1** 长视频 | ComfyUI-Distributed 多卡并行与 TensorRT 加速 |
+对于 **RTX 5080 (16GB VRAM)** 极客用户，建议彻底摒弃老旧模型，按以下三层梯队渐进式学习：
 
-#### 3. 实战案例：以 FLUX.1-dev 为例，如何安装到 ComfyUI？
+| 推荐梯队 | 推荐模型 | 显存契合度 | 主攻用途与推荐理由 |
+| :--- | :--- | :--- | :--- |
+| **🥇 第一主力** | **`Z-Image-Turbo`** (阿里 6B) | ⭐⭐⭐⭐⭐ 极佳 | 日常文生图、中文提示词、文字生成、8 步极速出图 |
+| **🥈 第二主力** | **`FLUX.2 Klein 4B`** (BFL 最新) | ⭐⭐⭐⭐⭐ 极佳 | 学习新一代 ComfyUI 架构、文生图 + 图像编辑 |
+| **🥉 生态主力** | **`SDXL 1.0`** (社区生态) | ⭐⭐⭐⭐ 轻松 | 学习 ControlNet、LoRA、IPAdapter、FaceDetailer 海量生态 |
+| **🚀 进阶探索** | **`FLUX.2 Dev`** | ⭐⭐⭐ 较重 | 追求 4MP 极限画质与复杂提示词（进阶阶段使用） |
 
-安装大模型有 **2 种最主流的方法**（优先推荐方法一）：
+---
 
-##### 🌟 方法一：在 ComfyUI Desktop 软件内【模型大厅】一键下载（官方原生法）
-> ⚠️ **新手避坑说明**：在最新版 ComfyUI Desktop 中，右上角的 `管理扩展功能` 仅用于安装插件代码（只有“节点包/节点”选项）。**真正的官方大模型下载入口在软件主侧边栏的【模型】大厅中**。
+#### 📂 4. 官方最规范的模型文件目录存放指南
 
-1. **进入模型大厅**：关掉弹窗，在 ComfyUI 主界面最左侧的黑色侧边栏（或点击左上角 `C` 标志返回启动大厅），点击 **`模型` (Models)** 菜单页。
-2. **搜索 FLUX 模型**：在【模型】大厅的搜索框中输入 `FLUX.1-dev` 或 `FLUX`。
-3. **一键安装**：找到对应的 `.safetensors` 模型卡片，点击 **`Install` (安装)**。
-4. **自动下载放置**：系统会自动在后台将模型下载并放入 `models/unet/` 或 `models/checkpoints/` 目录中，下载完成后直接可用！
+最新一代模型（如 Z-Image 与 FLUX.2）采用了组件解耦设计，下载后的文件请严格按照以下标准目录存放：
 
-##### 📦 方法二：手动下载后复制到文件夹（适合大文件/网络不稳定）
-FLUX.1-dev 涵盖以下关键文件，手动下载后请按以下目录存放：
-* **UNet 模型文件**（`flux1-dev.safetensors`）➔ 放入 **`models/unet/`** 或 `models/checkpoints/`
-* **CLIP 文本编码器**（`t5xxl_fp16.safetensors` 与 `clip_l.safetensors`）➔ 放入 **`models/clip/`**
-* **VAE 解码器**（`ae.safetensors`）➔ 放入 **`models/vae/`**
+```text
+ComfyUI/
+└── models/
+    ├── text_encoders/         <-- 存放文本编码器（如 qwen_3_4b.safetensors / t5xxl）
+    ├── diffusion_models/      <-- 存放扩散主模型（如 z_image_turbo_bf16.safetensors / flux-2-klein-4b-fp8.safetensors）
+    ├── vae/                   <-- 存放 VAE 解码器（如 flux2-vae.safetensors）
+    ├── checkpoints/           <-- 存放传统单体大模型（如 SDXL 1.0 .safetensors）
+    ├── loras/                 <-- 存放微调 LoRA 模型
+    └── controlnet/            <-- 存放 ControlNet 控制模型
+```
 
-放好后，在 ComfyUI 节点菜单中点击 **刷新 (Refresh)** 即可直接调用。
+---
 
-#### 3. 挂载本地已有模型（如果你硬盘里已有模型）
-如果你的 5080/4070 电脑其他盘里已经有 SDWebUI 或 ComfyUI 模型，可以直接在 ComfyUI 根目录的 `extra_model_paths.yaml` 中配置旧模型路径，无需重复下载！
+#### 🚀 5. 官方模板一键启动入口
+
+1. **Z-Image-Turbo**：在 ComfyUI 最左侧 **【模板】** 大厅中直接搜索 `Z-Image-Turbo` 即可载入官方原生 Workflow Template。
+2. **FLUX.2 Klein 4B**：在模板大厅搜索 `FLUX.2 Klein` 载入标准文本到图像工作流。
 
 ---
 
