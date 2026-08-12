@@ -4,7 +4,16 @@
 
 ---
 
-## ⚙️ 一、 安装向导 4 大步骤（真实安装流程）
+## 📥 一、 官网下载安装包（第一步）
+
+在开始安装之前，请认准官方唯一下载入口下载安装程序：
+
+* 🌐 **官方下载网址**：[https://www.comfy.org/download](https://www.comfy.org/download)
+* 📦 **安装包文件**：点击页面中的 **`Download for Windows`** 按钮，下载获取 `ComfyUI_Setup.exe` 安装程序。
+
+---
+
+## ⚙️ 二、 安装向导 4 大步骤（真实安装流程）
 
 运行下载好的 `ComfyUI_Setup.exe`，安装过程分为 4 步：
 
