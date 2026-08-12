@@ -91,12 +91,32 @@ ComfyUI/
 * **软件主程序路径**（仅几十 MB 启动程序壳）：
   `C:\Users\用户名\AppData\Local\Programs\Comfy Desktop\`
 * **真正的 19.27GB 模型下载保存全路径**：
-  👉 **`C:\Users\用户名\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\models\`**
+  👉 **`C:\Users\用户名\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\models\`**
 
-##### 📌 这 3 个文件会被自动精准放入以下子文件夹中：
-1. `ae.safetensors` (319MB VAE) ➔ `...\ComfyUI\models\vae\ae.safetensors`
-2. `qwen_3_4b.safetensors` (7.49GB 语言模型) ➔ `...\ComfyUI\models\text_encoders\qwen_3_4b.safetensors`
-3. `z_image_turbo_bf16.safetensors` (11.46GB 主扩散模型) ➔ `...\ComfyUI\models\diffusion_models\z_image_turbo_bf16.safetensors`
+---
+
+#### ❓ 7. 揭秘文件夹底层逻辑：为什么会有两个 ComfyUI？落地方案是什么？
+
+##### 1️⃣ 为什么路径里会出现重复的 `ComfyUI\ComfyUI`？
+这是官方 Desktop 的**架构层级设计**：
+* **外层 `ComfyUI-Installs\ComfyUI\`** ➔ 这是 **【实例容器名】**（就是你在启动大厅新建的实例名字，默认叫 ComfyUI）。
+* **内层 `...\ComfyUI\ComfyUI\`** ➔ 这是 **【内核代码根目录】**（从 GitHub 官方仓库拉下来的实际代码与模型存放地）。
+
+##### 2️⃣ 文件落地的 3 层金字塔规律（日常使用只需记这 3 个）：
+虽然目录看似繁杂，但作为使用者，你**完全不需要管系统代码文件夹**，只需要记住这 3 个最重要的核心目录：
+
+```text
+ComfyUI (内核根目录)
+├── models/              <-- 1. 模型资产库（最核心！按类型存放大模型、VAE、CLIP、LoRA）
+│   ├── text_encoders/   <-- 语言/文本编码器 (如 qwen_3_4b)
+│   ├── diffusion_models/<-- 生成主模型 (如 z_image_turbo / flux-2-klein)
+│   ├── vae/             <-- 图像解码器 (如 ae.safetensors)
+│   ├── checkpoints/     <-- 传统整合大模型 (如 SDXL 1.0)
+│   ├── loras/           <-- 风格/角色微调模型 (LoRA)
+│   └── controlnet/      <-- 姿态控制模型 (ControlNet)
+├── custom_nodes/        <-- 2. 插件安装区（所有第三方节点插件代码都在这里）
+└── output/              <-- 3. 成果产出区（你每次点击“运行”生成的图片，全部自动保存在这里！）
+```
 
 ---
 
