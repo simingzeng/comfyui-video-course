@@ -74,17 +74,22 @@
 #### 📂 5. 19.27GB 模型真实存放位置与【官方全局模型共享机制】解密
 
 ##### ❓ 为什么新建了 `MainEnv` 实例后，模型没有丢失且能直接运行？
-因为 ComfyUI Desktop 采用了极度优雅的 **【全局模型共享仓库 (Global Shared Models Storage)】** 机制：
+看 `Comfy-Desktop` 根目录下的文件夹结构：
 
-* **官方全局共享模型仓**（所有实例共享，防重复占用）：
-  👉 **`C:\Users\用户名\AppData\Local\Comfy-Desktop\models\`**
-* **实例独立目录**（你自己手动放的私有模型）：
-  👉 **`D:\ComfyUI-Installs\MainEnv\ComfyUI\models\`**
+```text
+Comfy-Desktop/
+├── ComfyUI-Shared/      <-- 1. 官方全局共享仓（Shared 存放公用大模型与共享资源）
+├── ComfyUI-Installs/    <-- 2. 实例舱目录
+│   ├── ComfyUI/         <-- 之前初始建立的第一个物理实例（模型存放在此）
+│   └── MainEnv/         <-- 新建立的 MainEnv 实例（自动共享关联旧模型）
+└── ComfyUI-Cache/       <-- 3. 运行缓存区
+```
 
-##### 💡 底层工作逻辑：
-当你首次通过界面一键下载 Z-Image-Turbo 时，19.27GB 的模型文件会被**统一保存在全局仓库 `Comfy-Desktop\models\` 对应子目录中**（包含 `text_encoders/qwen_3_4b` 和 `diffusion_models/z_image_turbo_bf16`）。
+##### 💡 底层原理说明：
+1. **`ComfyUI-Shared/` 共享目录**：官方桌面版会将跨实例共享的权重模型存在这个目录中。
+2. **旧物理目录保护**：如果你之前在默认的 `ComfyUI` 实例中下载过模型，即使在大厅重命名或建立新实例 `MainEnv`，软件为了防止十几 GB 模型丢失，**物理磁盘上的模型文件不会被删除**，且新实例会自动挂载旧模型路径！
 
-当你新建 `MainEnv` 或其他任何新实例时，ComfyUI Desktop 会自动在后台将全局仓库挂载进来。因此**新实例完全不需要重复下载 19.27GB 的模型，直接就能识别并流畅运行出图！**
+* **全局快速定位**：在 Windows 资源管理器搜索框中直接搜索 `qwen_3_4b`，即可秒级查到文件的物理绝对路径。
 
 ---
 
