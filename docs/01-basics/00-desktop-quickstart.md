@@ -71,16 +71,20 @@
 
 ---
 
-## 📂 五、 深度解惑：19.27GB 模型真实下载保存路径与文件夹底层逻辑
+#### 📂 5. 19.27GB 模型真实存放位置与【官方全局模型共享机制】解密
 
-### 1️⃣ 这 19.27GB 的模型文件存保存在 Windows 硬盘哪里？
-它们会被软件全自动精准安放到你的 **`MainEnv`** 实例数据目录中：
+##### ❓ 为什么新建了 `MainEnv` 实例后，模型没有丢失且能直接运行？
+因为 ComfyUI Desktop 采用了极度优雅的 **【全局模型共享仓库 (Global Shared Models Storage)】** 机制：
 
-👉 **`D:\ComfyUI-Installs\MainEnv\ComfyUI\models\`**
+* **官方全局共享模型仓**（所有实例共享，防重复占用）：
+  👉 **`C:\Users\用户名\AppData\Local\Comfy-Desktop\models\`**
+* **实例独立目录**（你自己手动放的私有模型）：
+  👉 **`D:\ComfyUI-Installs\MainEnv\ComfyUI\models\`**
 
-* `ae.safetensors` (319MB VAE) ➔ `...\models\vae\ae.safetensors`
-* `qwen_3_4b.safetensors` (7.49GB 语言模型) ➔ `...\models\text_encoders\qwen_3_4b.safetensors`
-* `z_image_turbo_bf16.safetensors` (11.46GB 主扩散模型) ➔ `...\models\diffusion_models\z_image_turbo_bf16.safetensors`
+##### 💡 底层工作逻辑：
+当你首次通过界面一键下载 Z-Image-Turbo 时，19.27GB 的模型文件会被**统一保存在全局仓库 `Comfy-Desktop\models\` 对应子目录中**（包含 `text_encoders/qwen_3_4b` 和 `diffusion_models/z_image_turbo_bf16`）。
+
+当你新建 `MainEnv` 或其他任何新实例时，ComfyUI Desktop 会自动在后台将全局仓库挂载进来。因此**新实例完全不需要重复下载 19.27GB 的模型，直接就能识别并流畅运行出图！**
 
 ---
 
