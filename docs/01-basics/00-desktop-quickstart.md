@@ -70,10 +70,19 @@ ComfyUI/
 
 ---
 
-#### 🚀 5. 官方模板一键启动入口
+#### 🚀 5. Z-Image-Turbo 极速开局：模板一键自动下载模型法（最省心！）
 
-1. **Z-Image-Turbo**：在 ComfyUI 最左侧 **【模板】** 大厅中直接搜索 `Z-Image-Turbo` 即可载入官方原生 Workflow Template。
-2. **FLUX.2 Klein 4B**：在模板大厅搜索 `FLUX.2 Klein` 载入标准文本到图像工作流。
+对于我们的 **RTX 5080** 显卡，不需要手动去繁琐地找模型链接，直接利用官方客户端的**自动检测下载功能**：
+
+##### 📌 手把手 4 步操作：
+1. **打开模板库**：点击 ComfyUI 最左侧黑色边栏最下方的 **`模板`** 图标。
+2. **搜索模板**：在搜索框输入 `Z-Image-Turbo`，找到 **`Z-Image-Turbo: 文生图`** 官方模板。
+3. **加载工作流**：点击卡片把工作流载入到画布中。
+4. **一键自动下载模型**：
+   * 载入后，软件会自动弹出或在底部提示 **`缺失模型 / Download missing models`**。
+   * 点击按钮，ComfyUI 会自动在后台将 `qwen_3_4b.safetensors` 和 `z_image_turbo_bf16.safetensors` 帮下载好，并**自动精准放置到 `text_encoders/` 和 `diffusion_models/` 目录下**！
+
+下载完成后，直接在提示词框中输入中文，点击右上角 **`▷ 运行`** 即可极速出图！
 
 ---
 
