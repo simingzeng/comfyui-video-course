@@ -84,6 +84,22 @@ ComfyUI/
 
 ---
 
+#### 📂 6. 19.27GB 模型真实下载保存路径解密
+
+在 ComfyUI Desktop 中，**软件程序路径** 与 **模型存储路径** 是彻底分离开的：
+
+* **软件主程序路径**（仅几十 MB 启动程序壳）：
+  `C:\Users\用户名\AppData\Local\Programs\Comfy Desktop\`
+* **真正的 19.27GB 模型下载保存全路径**：
+  👉 **`C:\Users\用户名\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\models\`**
+
+##### 📌 这 3 个文件会被自动精准放入以下子文件夹中：
+1. `ae.safetensors` (319MB VAE) ➔ `...\ComfyUI\models\vae\ae.safetensors`
+2. `qwen_3_4b.safetensors` (7.49GB 语言模型) ➔ `...\ComfyUI\models\text_encoders\qwen_3_4b.safetensors`
+3. `z_image_turbo_bf16.safetensors` (11.46GB 主扩散模型) ➔ `...\ComfyUI\models\diffusion_models\z_image_turbo_bf16.safetensors`
+
+---
+
 ## 🖱️ 四、 认识 ComfyUI 画布与加载工作流
 
 ### 💡 如何打开【模板库】载入 5 大基础节点？
