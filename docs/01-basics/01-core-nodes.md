@@ -135,4 +135,5 @@
 
 ### 🚀 学习路径导航
 
-[⬅️ 上一课：00. 官网下载、安装向导与启动全流程](./00-desktop-quickstart.md) | [👉 下一课：02. FLUX.1 原生大模型与提示词工程](./02-flux-models.md)
+[⬅️ 上一课：00. 官网下载、安装向导与启动全流程](./00-desktop-quickstart.md) | [👉 下一课：02. 参数透视：Seed、Steps、CFG 与采样器本质](./02-seed-and-samplers.md)
+
