@@ -6,6 +6,7 @@ export default withMermaid(
     title: "ComfyUI AI 视频极客教程",
     description: "从零手把手掌握 ComfyUI 视频生成与双机自动化挂机",
     base: '/comfyui-video-course/',
+    ignoreDeadLinks: true,
     mermaid: {
       theme: 'dark'
     },
