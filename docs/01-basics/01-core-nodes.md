@@ -26,6 +26,15 @@
 
 ---
 
+### 🗺️ 5 大核心节点【真机位置与功能标注大图】
+
+对照下方真机全景标注图，一眼看懂 5 大节点在软件画布中的真实位置与分工：
+
+![ComfyUI 5大核心节点真机位置全景标注图](./01-5-nodes-annotated.png)
+
+---
+
+
 ### 1️⃣ 大画家的脑海（Diffusion Model 节点）
 * **实例对应**：工作流中的 `z_image_turbo_bf16.safetensors`
 * **大白话**：请来的顶级画家的脑袋（保存在 `models/diffusion_models/` 中）。
