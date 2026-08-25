@@ -1,13 +1,7 @@
-# 23. ComfyUI API + Python：打造双机无人值守视频工厂
+﻿# 23. ComfyUI API + Python：打造双机无人值守视频工厂
 
 > 🏭 **本教程核心特色护城河！** 5080 主机极速生成原始素材 ➔ 办公机 4070 自动接单挂机超分/插帧/合成，Python 自动化工业级流水线。
-
 ---
-
-[⬅️ 上一课：22. FFmpeg 极客流水线：转码、抽帧与音视频合成](../06-post-processing/22-ffmpeg-pipeline.md) | [👉 下一课：24. Depth 深度图与二维画面的 3D 空间理解](../08-advanced-3d/24-depth-3d-space.md)
-
----
-
 ## 🏗️ 架构拓扑图
 
 ```text

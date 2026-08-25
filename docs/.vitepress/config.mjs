@@ -20,6 +20,10 @@ export default withMermaid(
         { text: '阶段 3：视频可控生成', link: '/03-video-control/10-first-last-frames' },
         { text: '阶段 7：双机自动化', link: '/07-dual-machine-automation/23-comfyui-api-python-factory' }
       ],
+      docFooter: {
+        prev: '上一篇',
+        next: '下一篇'
+      },
       sidebar: [
         {
           text: '阶段 0：真正理解 ComfyUI',
