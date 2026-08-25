@@ -14,6 +14,30 @@
   }
 }
 
+/* 🎚️ 侧边栏可自由拖拽把手样式 (IDE-like Resizer) */
+.sidebar-resizer {
+  position: fixed;
+  top: var(--vp-nav-height);
+  left: calc(var(--vp-sidebar-width) - 4px);
+  width: 8px;
+  height: calc(100vh - var(--vp-nav-height));
+  cursor: col-resize;
+  z-index: 60;
+  background: transparent;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-resizer:hover,
+.sidebar-resizer.is-resizing {
+  background: var(--vp-c-brand-1) !important;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+}
+
+body.is-resizing-sidebar {
+  user-select: none !important;
+  cursor: col-resize !important;
+}
+
 /* 💻 专为 16:9 与 21:9 超宽屏/带鱼屏解除宽度限制 */
 .VPContent {
   max-width: 100% !important;
