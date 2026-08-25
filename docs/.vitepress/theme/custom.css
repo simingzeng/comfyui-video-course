@@ -5,6 +5,13 @@
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(120deg, #a855f7 0%, #6366f1 50%, #06b6d4 100%);
   --vp-layout-max-width: 100% !important;
+  --vp-sidebar-width: 340px;
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --vp-sidebar-width: 360px;
+  }
 }
 
 /* 💻 专为 16:9 与 21:9 超宽屏/带鱼屏解除宽度限制 */
