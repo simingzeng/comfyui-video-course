@@ -22,7 +22,7 @@
   width: 8px;
   height: calc(100vh - var(--vp-nav-height));
   cursor: col-resize;
-  z-index: 60;
+  z-index: 20;
   background: transparent;
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
@@ -36,6 +36,19 @@
 body.is-resizing-sidebar {
   user-select: none !important;
   cursor: col-resize !important;
+}
+
+/* 🖱️ 确保所有正文内容 100% 支持鼠标自由拖动选择与复制 */
+.vp-doc,
+.vp-doc p,
+.vp-doc li,
+.vp-doc span,
+.vp-doc code,
+.vp-doc pre,
+.vp-doc details,
+.vp-doc summary {
+  user-select: text !important;
+  -webkit-user-select: text !important;
 }
 
 /* 💻 专为 16:9 与 21:9 超宽屏/带鱼屏解除宽度限制 */
