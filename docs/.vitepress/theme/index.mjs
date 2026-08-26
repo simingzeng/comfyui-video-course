@@ -1,5 +1,27 @@
 import DefaultTheme from 'vitepress/theme'
+import mediumZoom from 'medium-zoom'
 import './custom.css'
+
+let zoomInstance = null
+
+function initMediumZoom() {
+  if (typeof window === 'undefined') return
+  
+  // 延迟确保 DOM 渲染完成
+  setTimeout(() => {
+    const images = document.querySelectorAll('.vp-doc img')
+    if (images.length === 0) return
+
+    if (zoomInstance) {
+      zoomInstance.detach()
+    }
+
+    zoomInstance = mediumZoom(images, {
+      background: 'rgba(10, 15, 30, 0.92)',
+      margin: 24
+    })
+  }, 100)
+}
 
 function initSidebarResize() {
   if (typeof window === 'undefined') return
@@ -31,7 +53,6 @@ function initSidebarResize() {
 
   window.addEventListener('mousemove', (e) => {
     if (!isDragging) return
-    // 限制拖拽宽度在 240px ~ 600px 之间
     const newWidth = Math.min(Math.max(e.clientX, 240), 600)
     document.documentElement.style.setProperty('--vp-sidebar-width', `${newWidth}px`)
   })
@@ -42,7 +63,6 @@ function initSidebarResize() {
     resizer.classList.remove('is-resizing')
     document.body.classList.remove('is-resizing-sidebar')
     
-    // 保存到 LocalStorage
     try {
       const currentWidth = getComputedStyle(document.documentElement)
         .getPropertyValue('--vp-sidebar-width')
@@ -59,12 +79,18 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ router }) {
     if (typeof window !== 'undefined') {
-      window.addEventListener('DOMContentLoaded', initSidebarResize)
-      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        setTimeout(initSidebarResize, 50)
+      const setup = () => {
+        initSidebarResize()
+        initMediumZoom()
       }
+
+      window.addEventListener('DOMContentLoaded', setup)
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(setup, 50)
+      }
+
       router.onAfterRouteChanged = () => {
-        setTimeout(initSidebarResize, 100)
+        setTimeout(setup, 120)
       }
     }
   }
