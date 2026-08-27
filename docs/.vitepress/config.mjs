@@ -34,8 +34,7 @@ export default withMermaid(
           collapsed: false,
           items: [
             { text: '00. 官网下载与安装启动', link: '/01-basics/00-desktop-quickstart' },
-            { text: '01. 5大核心节点拆解', link: '/01-basics/01-core-nodes' },
-            { text: '02. 核心参数与机械猫实战', link: '/01-basics/02-seed-and-samplers' }
+            { text: '01. 5大核心节点与参数实战', link: '/01-basics/01-core-nodes' }
           ]
         },
         {
