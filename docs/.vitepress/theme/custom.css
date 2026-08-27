@@ -195,22 +195,56 @@ body.is-resizing-sidebar {
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
 }
 
-/* 当 TOC 折叠时的全局正文全屏自适应 */
-body.toc-collapsed .VPDocAside {
+/* 当 TOC 折叠时的全局正文 100% 满屏拉伸与彻底清除留白 */
+body.toc-collapsed .VPDocAside,
+body.toc-collapsed .VPDoc .aside,
+body.toc-collapsed .VPDoc .aside-container,
+body.toc-collapsed .VPDoc .aside-curtain {
   display: none !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 body.toc-collapsed .toc-float-capsule {
   display: flex !important;
 }
 
-body.toc-collapsed .VPDoc .content-container {
+body.toc-collapsed .VPDoc {
   max-width: 100% !important;
-  margin-right: 0 !important;
+}
+
+body.toc-collapsed .VPDoc .container {
+  max-width: 100% !important;
 }
 
 body.toc-collapsed .VPDoc .content {
-  padding-right: 32px !important;
+  max-width: 100% !important;
+  padding-left: 36px !important;
+  padding-right: 48px !important;
 }
+
+body.toc-collapsed .VPDoc .content-container {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.toc-collapsed .VPDoc .content-container .main,
+body.toc-collapsed .VPDoc.has-aside .content-container .main,
+body.toc-collapsed .VPDoc .main,
+body.toc-collapsed .vp-doc {
+  max-width: 100% !important;
+}
+
+/* 同时增强默认状态下的正文宽度利用率 */
+.VPDoc.has-aside .content-container .main,
+.VPDoc .content-container .main,
+.vp-doc {
+  max-width: 100% !important;
+}
+
 
 
