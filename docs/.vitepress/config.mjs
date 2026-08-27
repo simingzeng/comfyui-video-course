@@ -42,7 +42,7 @@ export default withMermaid(
           collapsed: false,
           items: [
             { text: '02. FLUX.2 文生图与编辑', link: '/01-basics/02-flux-prompting' },
-            { text: '03. 提示词工程与构图', link: '/01-basics/03-lora-consistency' },
+            { text: '03. 提示词工程与构图', link: '/01-basics/03-prompting-composition' },
             { text: '04. ControlNet 结构控制', link: '/01-basics/04-controlnet-structure' },
             { text: '05. 局部重绘与扩图精修', link: '/01-basics/05-inpaint-outpaint' }
           ]
