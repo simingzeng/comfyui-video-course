@@ -31,8 +31,7 @@ export default withMermaid(
           items: [
             { text: '00. 官网下载、安装向导与启动全流程', link: '/01-basics/00-desktop-quickstart' },
             { text: '01. 5大核心节点白话拆解与画手隐喻', link: '/01-basics/01-core-nodes' },
-            { text: '02. 参数透视：Seed、Steps、CFG 与采样器本质', link: '/01-basics/02-seed-and-samplers' },
-            { text: '03. 存储与路径：Shared models、实例与文件落地点', link: '/01-basics/03-storage-and-paths' }
+            { text: '02. 参数透视：Seed、Steps、CFG 与机械猫大片实战', link: '/01-basics/02-seed-and-samplers' }
           ]
         },
         {
