@@ -75,6 +75,58 @@ function initSidebarResize() {
   })
 }
 
+function initCollapsibleTOC() {
+  if (typeof window === 'undefined') return
+
+  // 1. 读取并应用历史保存的折叠状态
+  try {
+    const isCollapsed = localStorage.getItem('comfy_toc_collapsed') === 'true'
+    if (isCollapsed) {
+      document.body.classList.add('toc-collapsed')
+    } else {
+      document.body.classList.remove('toc-collapsed')
+    }
+  } catch (e) {}
+
+  // 2. 注入浮动唤出胶囊按钮
+  let capsule = document.querySelector('.toc-float-capsule')
+  if (!capsule) {
+    capsule = document.createElement('div')
+    capsule.className = 'toc-float-capsule'
+    capsule.innerHTML = '<span>📑</span><span>展开大纲</span>'
+    capsule.title = '点击重新展开本页大纲'
+    document.body.appendChild(capsule)
+
+    capsule.addEventListener('click', () => {
+      document.body.classList.remove('toc-collapsed')
+      try {
+        localStorage.setItem('comfy_toc_collapsed', 'false')
+      } catch (e) {}
+    })
+  }
+
+  // 3. 在右侧大纲容器中注入【收起 ➔】按钮
+  setTimeout(() => {
+    const aside = document.querySelector('.VPDocAsideOutline .content') || document.querySelector('.VPDocAside')
+    if (!aside) return
+
+    if (aside.querySelector('.toc-collapse-btn')) return
+
+    const btn = document.createElement('button')
+    btn.className = 'toc-collapse-btn'
+    btn.innerHTML = '<span>收起大纲</span> <span>➔</span>'
+    btn.title = '收起右侧大纲，释放全部正文空间'
+    aside.insertBefore(btn, aside.firstChild)
+
+    btn.addEventListener('click', () => {
+      document.body.classList.add('toc-collapsed')
+      try {
+        localStorage.setItem('comfy_toc_collapsed', 'true')
+      } catch (e) {}
+    })
+  }, 100)
+}
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ router }) {
@@ -82,6 +134,7 @@ export default {
       const setup = () => {
         initSidebarResize()
         initMediumZoom()
+        initCollapsibleTOC()
       }
 
       window.addEventListener('DOMContentLoaded', setup)
@@ -95,3 +148,4 @@ export default {
     }
   }
 }
+

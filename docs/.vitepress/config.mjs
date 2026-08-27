@@ -24,6 +24,10 @@ export default withMermaid(
         prev: '上一篇',
         next: '下一篇'
       },
+      outline: {
+        label: '本页大纲',
+        level: [2, 3]
+      },
       sidebar: [
         {
           text: '阶段 0：真正理解 ComfyUI',

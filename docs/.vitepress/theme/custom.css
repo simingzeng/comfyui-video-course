@@ -144,3 +144,73 @@ body.is-resizing-sidebar {
   cursor: zoom-out !important;
 }
 
+/* 📑 右侧大纲栏 (TOC) 折叠与悬浮胶囊样式 */
+.toc-collapse-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toc-collapse-btn:hover {
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+/* 浮动唤出胶囊 */
+.toc-float-capsule {
+  position: fixed;
+  top: calc(var(--vp-nav-height) + 16px);
+  right: 20px;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(99, 102, 241, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toc-float-capsule:hover {
+  transform: translateY(-2px);
+  background: var(--vp-c-brand-1);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.5);
+}
+
+/* 当 TOC 折叠时的全局正文全屏自适应 */
+body.toc-collapsed .VPDocAside {
+  display: none !important;
+}
+
+body.toc-collapsed .toc-float-capsule {
+  display: flex !important;
+}
+
+body.toc-collapsed .VPDoc .content-container {
+  max-width: 100% !important;
+  margin-right: 0 !important;
+}
+
+body.toc-collapsed .VPDoc .content {
+  padding-right: 32px !important;
+}
+
+
