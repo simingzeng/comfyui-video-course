@@ -60,20 +60,21 @@
 
 ---
 
-## 🖥️ 双机硬件实测架构 (Dual-GPU Setup)
+## 🖥️ 双机硬件实测架构 (Dual-GPU Architecture)
 
 ```text
-【家用主力机 RTX 5080】 (Ryzen 7 9800X3D + 48GB 内存)
+【🚀 旗舰主节点 RTX 5080】 (Ryzen 7 9800X3D + 48GB 内存)
    │ 
    │  🥇 静态主力：FLUX.2 / Z-Image-Turbo (6B 极速写实)
    │  🥈 视频主力：Wan 2.2 (5B / 14B / Fun Camera / Animate)
    ▼
-【网络共享目录 / UU 远程协同】
+【网络共享存储 / 远程协同自动化】
    │ 
    ▼
-【办公挂机机 RTX 4070 12GB】 (i7-14700KF + 16GB DDR5 + 64GB Pagefile)
+【⚡ 渲染从节点 RTX 4070 12GB】 (i7-14700KF + 16GB DDR5 + 64GB Pagefile)
    ├─► SAM 2 智能视频抠像
    ├─► RIFE 24➔60fps 丝滑插帧
    ├─► 4K 影视级超分辨率重塑
    └─► FFmpeg 自动化混流导出成片！
 ```
+
