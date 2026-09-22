@@ -31,14 +31,14 @@
 
 ### 1️⃣ 4 大核心模型资产清册
 
-| 角色岗位 | 官方推荐模型文件名 | 文件体积 | 存放绝对物理路径（存入 D 盘共享仓） | 核心作用 |
+| 角色岗位 | 官方推荐模型文件名 | 文件体积 | 存放物理路径（存入共享模型仓） | 核心作用 |
 | :---: | :---: | :---: | :--- | :--- |
-| **主扩散模型** | `flux1-dev-fp8.safetensors`<br>*(或 schnell 极速版)* | **11.90 GB** | `D:\ComfyUI-Shared\models\diffusion_models\`<br>*(或 `models\unet\`)* | 首席大画家，负责画面的整体构图、皮肤质感与艺术生成 |
-| **语言编码器 A** | `t5xxl_fp8_e4m3fn.safetensors` | **4.75 GB** | `D:\ComfyUI-Shared\models\clip\` | 超强语言大脑，解析自然语言长句、空间修饰与镜头逻辑 |
-| **语言编码器 B** | `clip_l.safetensors` | **246 MB** | `D:\ComfyUI-Shared\models\clip\` | 轻量视觉词典，负责基础词汇概念与常见物体的快速锚定 |
-| **图像解码器** | `ae.safetensors` | **335 MB** | `D:\ComfyUI-Shared\models\vae\` | 暗房显影药水，负责潜空间与真实 RGB 像素的无损转换 |
+| **主扩散模型** | `flux1-dev-fp8.safetensors`<br>*(或 schnell 极速版)* | **11.90 GB** | `ComfyUI-Shared\models\diffusion_models\`<br>*(或 `models\unet\`)* | 首席大画家，负责画面的整体构图、皮肤质感与艺术生成 |
+| **语言编码器 A** | `t5xxl_fp8_e4m3fn.safetensors` | **4.75 GB** | `ComfyUI-Shared\models\clip\` | 超强语言大脑，解析自然语言长句、空间修饰与镜头逻辑 |
+| **语言编码器 B** | `clip_l.safetensors` | **246 MB** | `ComfyUI-Shared\models\clip\` | 轻量视觉词典，负责基础词汇概念与常见物体的快速锚定 |
+| **图像解码器** | `ae.safetensors` | **335 MB** | `ComfyUI-Shared\models\vae\` | 暗房显影药水，负责潜空间与真实 RGB 像素的无损转换 |
 
-> 💾 **总硬盘空间占用**：约 **17.23 GB**。只要你按照【00 篇】设置了 `D:\ComfyUI-Shared\models\` 共享目录，这些模型全部存放于 D 盘，C 盘 100% 零负担！
+> 💾 **总硬盘空间占用**：约 **17.23 GB**。无论你使用的是默认路径（`%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models`）还是自定义迁移至 D 盘（`D:\ComfyUI-Shared\models`），这些模型都在共享仓中统一管理，所有实例通用！
 
 ---
 
@@ -57,10 +57,10 @@
 4. 找到对应条目，点击右侧的 **`Install`** 按钮，系统自动后台下载并归位。
 
 #### 方式 C：国内镜像 / 手动高速下载后直接拖入目录
-如果你拥有百度网盘、夸克网盘或从国内魔搭社区 (ModelScope) 高速下载了模型，直接复制剪切到对应物理路径：
-* 主模型 ➔ 扔进 `D:\ComfyUI-Shared\models\diffusion_models\`
-* 两个 CLIP ➔ 扔进 `D:\ComfyUI-Shared\models\clip\`
-* VAE ➔ 扔进 `D:\ComfyUI-Shared\models\vae\`
+如果你拥有百度网盘、夸克网盘或从国内魔搭社区 (ModelScope) 高速下载了模型，直接复制剪切到你的共享模型目录下（默认在 `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models\` 或自定义 `D:\ComfyUI-Shared\models\`）：
+* 主模型 ➔ 扔进 `ComfyUI-Shared\models\diffusion_models\`
+* 两个 CLIP ➔ 扔进 `ComfyUI-Shared\models\clip\`
+* VAE ➔ 扔进 `ComfyUI-Shared\models\vae\`
 
 ---
 
@@ -270,7 +270,10 @@ Cinematic film still, 35mm lens, f/1.8. A determined East Asian female cyberpunk
 * 验收 2：**皮肤与毛孔**：放大观察女飞行员面部，额头湿发纹理、真实的皮肤微瑕与高光通透感一览无遗。
 * 验收 3：**皮革与材质**：飞行员夹克的做旧皮革裂纹、金属拉链与微光胸章质感极强。
 * 验收 4：**物理存盘验证**：
-  * 打开电脑文件管理器，进入：👉 **`D:\ComfyUI-Installs\MainEnv\ComfyUI\output\`**；
+  * 打开文件管理器，进入你的【共享输出】目录：  
+    👉 **官方默认路径**：`C:\Users\<你的用户名>\AppData\Local\Comfy-Desktop\ComfyUI-Shared\output\`  
+    👉 **自定义迁移路径**：`D:\ComfyUI-Shared\output\`  
+    💡 *1秒直达快捷技巧*：在左上角点击【桌面端设置 ➔ 存储】，直接点击【共享输出】右侧的 **📁 文件夹图标** 秒开；
   * 你会看到最新生成的高清 PNG 图片已经完好保存在这里！
 
 ---
