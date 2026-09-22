@@ -56,7 +56,50 @@
 
 ---
 
-### 2️⃣ 3 种极速获取模型的方式（任选其一即可）
+---
+
+### 2️⃣ 必修通识：什么是 ComfyUI 插件 (Custom Nodes)？手把手实装第一个神级插件 ComfyUI-Manager
+
+在开始下载模型前，花 2 分钟打通 ComfyUI 整个开源生态最强大的灵魂——**插件机制 (Custom Nodes)**：
+
+#### 💡 什么是插件？为什么要装它？
+* **官方原生只是“精装毛坯房”**：阶段 0 中学到的核心节点（如 KSampler、VAE 等）只是 ComfyUI 原生自带的基础设施；
+* **插件是“智能家电与超级工具箱”**：全球开源极客编写的扩展程序（在 ComfyUI 中统称为 **Custom Nodes / 自定义节点**），能为你注入 ControlNet 姿态控制、Wan 2.2 视频生成、运镜控制、SAM2 自动抠像等海量黑科技；
+* **插件唯一的物理老巢**：所有插件代码，都会统一存放在你的主力母舰实例中：  
+  👉 **默认路径**：`C:\Users\<你的用户名>\AppData\Local\Comfy-Desktop\ComfyUI-Installs\MainEnv\ComfyUI\custom_nodes\`  
+  👉 **自定义路径**：`D:\ComfyUI-Installs\MainEnv\ComfyUI\custom_nodes\`  
+  *铁律*：**一个插件，在 `custom_nodes` 里就是一个独立的文件夹！**
+
+---
+
+#### 🛠️ 手把手实装“天下第一插件”：ComfyUI-Manager (应用商店)
+
+`ComfyUI-Manager` 是整个生态公认的必备神级插件。装了它，你的 ComfyUI 就拥有了**内置应用商店**，以后无论是一键搜索下载模型、安装第三方插件、还是一键修复别人工作流里的“标红缺失节点 (Install Missing Nodes)”，全部一键自动化！
+
+两套实装方案（任选其一）：
+
+* **方案 A（极速推荐，Git 一行命令）**：
+  1. 打开文件管理器，进入上述 `custom_nodes` 文件夹；
+  2. 在空白处点击鼠标右键 ➔ 选择 **【在终端中打开】**（或打开 PowerShell）；
+  3. 粘贴执行以下命令：
+     ```bash
+     git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+     ```
+     *(如国内网络访问 GitHub 缓慢，可使用镜像：`git clone https://gitee.com/ltdrdata/ComfyUI-Manager.git`)*
+
+* **方案 B（纯鼠标操作，ZIP 下载解压）**：
+  1. 在浏览器打开：[https://github.com/ltdrdata/ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager)；
+  2. 点击绿色的 **`Code`** 按钮 ➔ 点击 **`Download ZIP`** 下载压缩包；
+  3. 解压压缩包，将解压出的文件夹**重命名为 `ComfyUI-Manager`**；
+  4. 将该文件夹直接剪切粘贴到你的 `custom_nodes\` 目录下即可！
+
+#### 🔄 重启实例，见证奇迹！
+* 关闭 ComfyUI Desktop，重新启动并点击进入主力母舰 **`MainEnv`** 实例；
+* 进入画布，观察屏幕右侧浮动操作面板（或右下角），你会惊喜地发现新出现了一个亮眼的 **`Manager`** 按钮！恭喜你，你的 ComfyUI 正式升级为具备自进化能力的高级工作站！
+
+---
+
+### 3️⃣ 3 种极速获取模型的方式（任选其一即可）
 
 #### 方式 A（推荐新手）：通过 ComfyUI Desktop 官方模板自动一键拉取
 1. 打开 ComfyUI Desktop，进入作画画布；
@@ -64,11 +107,11 @@
 3. 在弹出的模板库窗口中搜索 `Flux`，点击选择 **`Flux.1 Dev: 文生图`** 载入画布；
 4. 右上角弹出黄色或红色提示框时，点击 **【查看详情】** ➔ 点击 **【📥 全部下载】**，软件会自动将上述 4 个模型分毫不差下载到你的共享模型目录中！
 
-#### 方式 B：通过 ComfyUI Manager（模型管理器）界面搜索安装
-1. 点击 ComfyUI 悬浮操作面板上的 **`Manager`** 按钮；
+#### 方式 B：用刚装好的 ComfyUI Manager 界面搜索安装（趁热打铁实操验收！）
+1. 点击 ComfyUI 悬浮操作面板上刚激活的 **`Manager`** 按钮；
 2. 在弹出菜单中点击 **`Model Manager (模型管理)`**；
 3. 在顶部搜索框分别输入 `flux1-dev-fp8`、`t5xxl_fp8`、`clip_l`、`ae.safetensors`；
-4. 找到对应条目，点击右侧的 **`Install`** 按钮，系统自动后台下载并归位。
+4. 找到对应条目，点击右侧的 **`Install`** 按钮，Manager 会自动在后台将它们精准下载并归位到共享模型目录中！
 
 #### 方式 C：国内镜像 / 手动高速下载后直接拖入目录
 如果你拥有百度网盘、夸克网盘或从国内魔搭社区 (ModelScope) 高速下载了模型，直接复制剪切到你的共享模型目录下（默认在 `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models\` 或自定义 `D:\ComfyUI-Shared\models\`）：
