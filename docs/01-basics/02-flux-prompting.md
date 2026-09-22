@@ -52,7 +52,7 @@
 | **语言编码器 B** | `clip_l.safetensors` | **246 MB** | `ComfyUI-Shared\models\clip\` | 轻量视觉词典，负责基础词汇概念与常见物体的快速锚定 |
 | **图像解码器** | `ae.safetensors` | **335 MB** | `ComfyUI-Shared\models\vae\` | 暗房显影药水，负责潜空间与真实 RGB 像素的无损转换 |
 
-> 💾 **总硬盘空间占用**：约 **17.23 GB**。无论你使用的是默认路径（`%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models`）还是自定义迁移至 D 盘（`D:\ComfyUI-Shared\models`），这些模型都在共享仓中统一管理，所有实例通用！
+> 💾 **总硬盘空间占用**：约 **17.23 GB**。所有模型统一存放在共享模型仓（`%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models\`），在 `MainEnv` 实例中自由调用！
 
 ---
 
@@ -66,8 +66,7 @@
 * **官方核心只是“精装毛坯房”**：阶段 0 中学到的原生节点（如 KSampler、VAE、CLIP 等）只是 ComfyUI 自带的基础基础设施；
 * **插件是“智能家电与超级工具箱”**：全球开源极客编写的扩展程序（在 ComfyUI 中统称为 **Custom Nodes / 自定义节点**），能为你注入 ControlNet 姿态控制、Wan 2.2 视频生成、运镜控制、SAM2 自动抠像等海量进阶黑科技；
 * **插件唯一的物理老巢**：所有插件代码，都会统一存放在你的主力母舰实例中：  
-  👉 **默认路径**：`C:\Users\<你的用户名>\AppData\Local\Comfy-Desktop\ComfyUI-Installs\MainEnv\ComfyUI\custom_nodes\`  
-  👉 **自定义路径**：`D:\ComfyUI-Installs\MainEnv\ComfyUI\custom_nodes\`  
+  👉 **物理路径（可直接复制打开）**：`%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs\MainEnv\ComfyUI\custom_nodes\`  
   *铁律*：**一个插件，在 `custom_nodes` 里就是一个独立的子文件夹！**
 
 ---
@@ -121,7 +120,7 @@
 4. 找到对应条目，点击右侧的 **`Install`** 按钮，Manager 会自动在后台将它们精准下载并归位到共享模型目录中！
 
 #### 方式 C：国内镜像 / 手动高速下载后直接拖入目录
-如果你拥有百度网盘、夸克网盘或从国内魔搭社区 (ModelScope) 高速下载了模型，直接复制剪切到你的共享模型目录下（默认在 `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models\` 或自定义 `D:\ComfyUI-Shared\models\`）：
+如果你拥有百度网盘、夸克网盘或从国内魔搭社区 (ModelScope) 高速下载了模型，直接复制剪切到你的共享模型目录下（`%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models\`）：
 * 主模型 ➔ 扔进 `ComfyUI-Shared\models\diffusion_models\`
 * 两个 CLIP ➔ 扔进 `ComfyUI-Shared\models\clip\`
 * VAE ➔ 扔进 `ComfyUI-Shared\models\vae\`
@@ -335,9 +334,8 @@ Cinematic film still, 35mm lens, f/1.8. A determined East Asian female cyberpunk
 * 验收 3：**皮革与材质**：飞行员夹克的做旧皮革裂纹、金属拉链与微光胸章质感极强。
 * 验收 4：**物理存盘验证**：
   * 打开文件管理器，进入你的【共享输出】目录：  
-    👉 **官方默认路径**：`C:\Users\<你的用户名>\AppData\Local\Comfy-Desktop\ComfyUI-Shared\output\`  
-    👉 **自定义迁移路径**：`D:\ComfyUI-Shared\output\`  
-    💡 *1秒直达快捷技巧*：在左上角点击【桌面端设置 ➔ 存储】，直接点击【共享输出】右侧的 **📁 文件夹图标** 秒开；
+    👉 **物理存放路径（可直接复制打开）**：`%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\output\`  
+    💡 *1秒直达快捷技巧*：复制上面的路径粘贴进文件管理器地址栏按回车，或在左上角点击【桌面端设置 ➔ 存储】，直接点击【共享输出】右侧的 **📁 文件夹图标** 秒开；
   * 你会看到最新生成的高清 PNG 图片已经完好保存在这里！
 
 ---
